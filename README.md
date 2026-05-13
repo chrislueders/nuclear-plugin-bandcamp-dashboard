@@ -17,6 +17,8 @@ No Bandcamp account required. No API key. No streaming — discovery and browsin
 
 Clicking an album or track opens a search in Nuclear for that artist and title. Clicking a playlist opens the full track list of that radio episode.
 
+> **Tip:** Install the [**Bandcamp plugin by nukeop**](https://github.com/NuclearPlayer/nuclear-plugin-bandcamp) alongside this one. It adds Bandcamp as a streaming and metadata provider, so clicking an album or track here will resolve directly to Bandcamp audio instead of falling back to a generic search.
+
 ---
 
 ## Features
@@ -75,7 +77,7 @@ src/
 
 ## Limitations
 
-- **No streaming** — this plugin does not stream audio. Clicking an album or track triggers a Nuclear search for that artist + title, which can then be played via a streaming provider (e.g. YouTube, SoundCloud).
+- **No streaming** — this plugin does not stream audio. Clicking an album or track triggers a Nuclear search. Install the [Bandcamp plugin by nukeop](https://github.com/NuclearPlayer/nuclear-plugin-bandcamp) to resolve results directly from Bandcamp.
 - **No authentication** — only publicly available, unauthenticated data.
 - **Bandcamp API changes** — Bandcamp's internal APIs are undocumented and may change without notice.
 
