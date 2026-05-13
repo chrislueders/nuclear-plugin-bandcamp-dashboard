@@ -1,0 +1,20 @@
+{
+  "name": "nuclear-plugin-bandcamp-dashboard",
+  "version": "0.1.0",
+  "main": "src/index.ts",
+  "type": "module",
+  "description": "Bandcamp Dashboard plugin for Nuclear Player — New & Notable, Album of the Day, Radio",
+  "author": "chrislueders",
+  "nuclear": {
+    "displayName": "Bandcamp Dashboard",
+    "categories": ["dashboard"],
+    "icon": {
+      "type": "link",
+      "link": "https://s4.bcbits.com/img/favicon/apple-touch-icon.png"
+    },
+    "permissions": []
+  },
+  "dependencies": {
+    "@nuclearplayer/plugin-sdk": "^2.8.0"
+  }
+}
