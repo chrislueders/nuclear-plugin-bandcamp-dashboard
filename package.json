@@ -1,6 +1,6 @@
 {
   "name": "nuclear-plugin-bandcamp-dashboard",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "src/index.ts",
   "type": "module",
   "description": "Bandcamp Dashboard plugin for Nuclear Player — New & Notable, Album of the Day, Radio",

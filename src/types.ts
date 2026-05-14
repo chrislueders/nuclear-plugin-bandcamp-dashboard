@@ -50,6 +50,9 @@ export interface BcRawShow {
 }
 
 export interface BcRawShowDetail extends BcRawShow {
+  show_id?: number;
+  show_image_id?: number;
+  audio_title?: string;
   tracks?: BcRawShowTrack[];
 }
 

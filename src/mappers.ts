@@ -1,6 +1,6 @@
 import type { AlbumRef, ArtistCredit, ArtistRef, ArtworkSet, PlaylistRef, ProviderRef, Track } from '@nuclearplayer/model';
 import { BANDCAMP_IMAGE_BASE, PROVIDER_SOURCE } from './config.ts';
-import type { BcRawAlbumEntry, BcRawDiscoverItem, BcRawNotableItem, BcRawShow, BcRawShowTrack } from './types.ts';
+import type { BcRawAlbumEntry, BcRawDiscoverItem, BcRawNotableItem, BcRawShow, BcRawShowDetail, BcRawShowTrack } from './types.ts';
 
 function toArtwork(imageUrl: string | undefined): ArtworkSet | undefined {
   if (!imageUrl) return undefined;
@@ -87,14 +87,18 @@ export function albumEntryToAlbumRef(entry: BcRawAlbumEntry): AlbumRef {
 }
 
 export function showToPlaylistRef(show: BcRawShow): PlaylistRef {
-  const showUrl = `https://bandcamp.com/radio?show=${show.id}`;
+  const detail = show as BcRawShowDetail;
+  const id = show.id ?? detail.show_id ?? 0;
+  const showUrl = `https://bandcamp.com/radio?show=${id}`;
   const name = show.title
-    ?? (show.subtitle ? `Bandcamp Weekly – ${show.subtitle}` : `Bandcamp Weekly #${show.id}`);
+    ? (show.subtitle ? `${show.title} – ${show.subtitle}` : show.title)
+    : (show.subtitle ?? `Bandcamp Weekly #${show.id}`);
+  const imageId = detail.show_image_id ?? show.image_id;
   return {
-    id: String(show.id),
+    id: String(id),
     name,
-    artwork: show.image_id ? toArtwork(showImageUrl(show.image_id)) : undefined,
-    source: toProviderRef(showUrl, String(show.id)),
+    artwork: imageId ? toArtwork(showImageUrl(imageId)) : undefined,
+    source: toProviderRef(showUrl, String(id)),
   };
 }
 

@@ -31,8 +31,15 @@ export function createPlaylistsProvider(client: BandcampClient): PlaylistProvide
 
       return {
         id: String(showId),
-        name: show.title ?? `Bandcamp Show #${showId}`,
-        description: show.desc,
+        name: show.title
+          ? (show.subtitle ? `${show.title} – ${show.subtitle}` : show.title)
+          : `Bandcamp Show #${showId}`,
+        description: [
+          (show.published_date ?? show.date)
+            ? new Date(show.published_date ?? show.date!).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
+            : undefined,
+          show.desc,
+        ].filter(Boolean).join(' · '),
         createdAtIso: show.published_date ?? show.date ?? now,
         lastModifiedIso: now,
         isReadOnly: true,

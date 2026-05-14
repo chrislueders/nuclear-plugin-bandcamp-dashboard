@@ -32,7 +32,10 @@ export function createDashboardProvider(client: BandcampClient): DashboardProvid
 
     fetchEditorialPlaylists: async () => {
       const shows = await client.getShows();
-      return shows.map(showToPlaylistRef);
+      const details = await Promise.all(shows.map(s => client.getShowById(s.id)));
+      return details
+        .filter((d): d is NonNullable<typeof d> => d !== null)
+        .map(showToPlaylistRef);
     },
   };
 }
