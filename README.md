@@ -1,6 +1,6 @@
 # nuclear-plugin-bandcamp-dashboard
 
-A [Nuclear Player](https://nuclear.js.org) plugin that integrates [Bandcamp](https://bandcamp.com) as a dashboard and playlist source. Browse curated music, editorial picks, and Bandcamp Weekly radio shows directly inside Nuclear.
+A [Nuclear Player](https://nuclearplayer.com/) plugin that integrates [Bandcamp](https://bandcamp.com) as a dashboard and playlist source. Browse curated music, editorial picks, and Bandcamp Weekly radio shows directly inside Nuclear.
 
 No Bandcamp account required. No API key. No streaming — discovery and browsing only.
 
